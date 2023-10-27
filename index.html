@@ -4,43 +4,27 @@
 <script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
-<p><strong>아래 카카오톡 아이콘을 눌러 전송하세요</strong> By. Blackcats4567</p>
+<p><strong>아래 카카오톡 아이콘을 눌러 전송하세요</strong> By. JG Cho (junggun.cho@gmail.com)</p>
 <a id="kakao-link-btn" href="javascript:sendLink()">
   <img
     src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
   />
 </a>
 <script type="text/javascript">
- Kakao.init('c6f2a0550ddb3e76716188334dce54c8');
-  function sendLink() {
-    Kakao.Link.sendDefault({
-      objectType: 'feed',
-      content: {
-        title: 'PinkRibbonDay ',
-        description: 'This is a message send for PinkribbonDay',
-        imageUrl:
-          'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fpink-ribbon-background&psig=AOvVaw2KfM6B8zagyituBFBC9tS8&ust=1698460518647000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCKCdrdCYlYIDFQAAAAAdAAAAABAX',
-        link: {
-          mobileWebUrl: '사진클릭시 모바일 주소',
-          webUrl: '사진클릭시 PC 주소',
-        },
-      },
-      social: {
-        likeCount: 999, //99999가 최대입니다
-        commentCount: 999, //99999가 최대입니다
-        sharedCount: 999, //99999가 최대입니다
-      },
-      buttons: [
-        {
-          title: '보내기버튼입니다',
-          link: {
-            mobileWebUrl: '클릭시 모바일 주소',
-            webUrl: '클릭시 PC 주소',
-          },
-        },
-      ],
-    })
-  }
+  import kakao from '@kakao/sdk';
+  Kakao.init('c6f2a0550ddb3e76716188334dce54c8');
+  const templateId = '10069';
+  const to = '821049958620';
+  
+  function sendMessage() {
+   kakao.message.send({
+    templateId: templateId,
+    to: to,
+    variables: variables,
+  });
+}
+// 메시지를 보냅니다.
+sendMessage();
 </script>
 <!-- www.blackcats4567.com -->
 <!-- 이미지/버튼 클릭 시 주소는 Kakao Developers의 애플리케이션 > 플랫폼 > Web에 넣어야 클릭했을때 성공적으로 표시됩니다 -->
