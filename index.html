@@ -4,27 +4,42 @@
 <script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
-<p><strong>아래 카카오톡 아이콘을 눌러 전송하세요</strong> By. JG Cho (junggun.cho@gmail.com)</p>
+<p><strong>아래 카카오톡 아이콘을 눌러 전송하세요</strong> By. JungGun Cho(junggun.cho@gmail.com</p>
 <a id="kakao-link-btn" href="javascript:sendLink()">
   <img
     src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
   />
 </a>
 <script type="text/javascript">
-  import kakao from '@kakao/sdk';
-  Kakao.init('c6f2a0550ddb3e76716188334dce54c8');
-  const templateId = '10069';
-  const to = '821049958620';
-  
-  function sendMessage() {
-   kakao.message.send({
-    templateId: templateId,
-    to: to,
-    variables: variables,
-  });
-}
-// 메시지를 보냅니다.
-sendMessage();
+ Kakao.init('c6f2a0550ddb3e76716188334dce54c8');
+  function sendLink() {
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: 'PinkRibbonDay',
+        imageUrl:
+          'https://www.postermywall.com/index.php/posterbuilder/load/9d11106d1f2f1c1281eed3cb99560c8d',
+        link: {
+          mobileWebUrl: 'https://www.kbcs.or.kr',
+          webUrl: 'https://www.kbcs.or.kr',
+        },
+      },
+      social: {
+        likeCount:9999, //99999가 최대입니다
+        commentCount: 9999, //99999가 최대입니다
+        sharedCount: 9999, //99999가 최대입니다
+      },
+      buttons: [
+        {
+          title: '유방암 자가진단',
+          link: {
+            mobileWebUrl: 'https://terms.naver.com/entry.naver?docId=5829482&cid=51616&categoryId=65683',
+            webUrl: 'https://terms.naver.com/entry.naver?docId=5829482&cid=51616&categoryId=65683',
+          },
+        },
+      ],
+    })
+  }
 </script>
 <!-- www.blackcats4567.com -->
 <!-- 이미지/버튼 클릭 시 주소는 Kakao Developers의 애플리케이션 > 플랫폼 > Web에 넣어야 클릭했을때 성공적으로 표시됩니다 -->
